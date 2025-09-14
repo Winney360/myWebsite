@@ -106,7 +106,7 @@ const Contact = () => {
     }
   };
 
-  const whatsappUrl = "https://wa.me/+1234567890";
+  const whatsappUrl = "https://wa.me/+254791995578";
 
   const socialLinks = [
     { name: 'GitHub', icon: Github, url: 'https://github.com/Winney360', color: 'hover:text-gray-600' },
