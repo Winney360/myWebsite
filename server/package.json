@@ -6,6 +6,7 @@
   "main": "server.js",
   "scripts": {
     "dev":"pnpm nodemon",
+    "start":"node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 

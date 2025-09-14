@@ -38,7 +38,7 @@ const Contact = () => {
       [e.target.name]: e.target.value
     });
   };
-
+  
   const handleSubmit = async (e) => {
   e.preventDefault();
   setIsSubmitting(true);
@@ -75,7 +75,8 @@ const Contact = () => {
     navigator.clipboard.writeText(email);
     toast.success('Email copied to clipboard!');
   };
-
+  
+  const API_BASE = import.meta.env.VITE_API_URL;
   const handleChatSubmit = async (e) => {
     e.preventDefault();
     if (!chatMessage.trim()) return;
@@ -85,7 +86,7 @@ const Contact = () => {
     setChatHistory(prev => [...prev, { type: 'user', message: userMessage }]);
 
     try {
-      const response = await fetch('/api/chatbot', {
+      const response = await fetch(`${API_BASE}/api/chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
