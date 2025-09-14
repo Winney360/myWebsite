@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import toast, { Toaster } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
 import { 
   EnvelopeIcon, 
   ClipboardDocumentIcon,
@@ -39,35 +40,38 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const result = await emailjs.send(
+      'service_yspoh4q',      // 🔹 replace with your EmailJS service ID
+      'template_x4b2hgp',     // 🔹 replace with your EmailJS template ID
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        time: new Date().toLocaleString(),
+      },
+      '5myqG4PIvumn0Mor6'       // 🔹 replace with your EmailJS public key
+    );
 
-      const result = await response.json();
-
-      if (result.success) {
-        toast.success(result.message);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        toast.error(result.message);
-      }
-    } catch (error) {
-      toast.error('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+    if (result.status === 200) {
+      toast.success(`Thanks ${formData.name}! Your message has been sent.`);
+      setFormData({ name: '', email: '', subject: '', message: '' });
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error('Failed to send message. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const copyEmail = () => {
-    const email = 'winnie@example.com';
+    const email = 'nkathawinnie94@gmail.com';
     navigator.clipboard.writeText(email);
     toast.success('Email copied to clipboard!');
   };
@@ -104,13 +108,13 @@ const Contact = () => {
   const whatsappUrl = "https://wa.me/+1234567890";
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, url: 'https://github.com/winnie', color: 'hover:text-gray-600' },
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/winnie', color: 'hover:text-blue-600' },
-    { name: 'Instagram', icon: Instagram, url: 'https://instagram.com/winnie', color: 'hover:text-pink-600' },
+    { name: 'GitHub', icon: Github, url: 'https://github.com/Winney360', color: 'hover:text-gray-600' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/winfred-nkatha-858023261', color: 'hover:text-blue-600' },
+    { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/weeh_ni.e?igsh=cW02eHU5MGJzcWw5', color: 'hover:text-purple-600' },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section id="contact" className="py-20 bg-gradient-to-b from-blue-50 to-blue-200 dark:from-gray-800 dark:to-gray-900">
       <Toaster position="top-right" />
       
       <div className="container mx-auto px-6">
@@ -120,7 +124,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
             Let's Connect
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -128,13 +132,13 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div ref={ref} className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div ref={ref} className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 ">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
-            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+            className="bg-violet-300 dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
           >
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send a Message
@@ -152,7 +156,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-violet-100 dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                     placeholder="Your name"
                   />
                 </div>
@@ -167,7 +171,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-violet-100 dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -182,7 +186,7 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-violet-100 dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300"
                   placeholder="Project inquiry, collaboration, etc."
                 />
               </div>
@@ -197,7 +201,7 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-violet-100 dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 resize-none"
                   placeholder="Tell me about your project or what you'd like to discuss..."
                 />
               </div>
@@ -205,7 +209,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50 flex items-center justify-center space-x-2"
+                className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50 flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
@@ -227,26 +231,26 @@ const Contact = () => {
             className="space-y-8"
           >
             {/* Contact Methods */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="bg-violet-300 dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Get in Touch
               </h3>
 
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
+              <div className="space-y-4 ">
+                <div className="flex items-center space-x-4 rounded-lg bg-red-50 dark:bg-gray-700">
                   <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg">
                     <EnvelopeIcon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
                   </div>
                   <div className="flex-1">
                     <p className="font-medium text-gray-900 dark:text-white">Email</p>
-                    <p className="text-gray-600 dark:text-gray-400">winnie@example.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">nkathawinnie94@gmail.com</p>
                   </div>
                   <button
                     onClick={copyEmail}
                     className="p-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
                     title="Copy email"
                   >
-                    <ClipboardDocumentIcon className="w-5 h-5" />
+                    <ClipboardDocumentIcon className="w-4 h-5" />
                   </button>
                 </div>
 
@@ -254,9 +258,9 @@ const Contact = () => {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-all duration-300"
+                  className="flex items-center space-x-4 p-1 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-all duration-300"
                 >
-                  <div className="p-3 bg-green-500 rounded-lg">
+                  <div className="p-1 bg-green-400 rounded-lg">
                     <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -278,7 +282,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-400 ${social.color} transition-all duration-300 hover:scale-110`}
+                      className={`p-3 bg-violet-100 dark:bg-gray-700 rounded-lg text-gray-600 dark:text-gray-400 ${social.color} transition-all duration-300 hover:scale-110`}
                     >
                       <social.icon className="w-6 h-6" />
                     </a>
@@ -288,7 +292,7 @@ const Contact = () => {
             </div>
 
             {/* Mini Chatbot */}
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="bg-violet-300 dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center space-x-2">
                 <span>💬</span>
                 <span>Quick Chat</span>
@@ -296,7 +300,7 @@ const Contact = () => {
 
               <div className="space-y-4">
                 {chatHistory.length > 0 && (
-                  <div className="max-h-40 overflow-y-auto space-y-2 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                  <div className="max-h-40 overflow-y-auto space-y-2 p-3 bg-violet-100 dark:bg-gray-700 rounded-lg">
                     {chatHistory.map((chat, index) => (
                       <div
                         key={index}
@@ -321,7 +325,7 @@ const Contact = () => {
                     value={chatMessage}
                     onChange={(e) => setChatMessage(e.target.value)}
                     placeholder="Ask me anything..."
-                    className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                    className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-violet-100 dark:bg-gray-700 text-gray-900 dark:text-white"
                   />
                   <button
                     type="submit"

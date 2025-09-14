@@ -16,7 +16,7 @@ const LoadingScreen = () => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-gradient-to-br from-primary-500 via-pink-500 to-primary-700 flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-gradient-to-br from-primary-500 via-purple-500 to-primary-700 flex items-center justify-center"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}

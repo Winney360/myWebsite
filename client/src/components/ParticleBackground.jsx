@@ -8,7 +8,7 @@ const ParticleBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.3 }}
+      style={{ opacity: 1 }}
     />
   );
 };

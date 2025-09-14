@@ -5,29 +5,30 @@ const router = express.Router();
 // Simple chatbot responses
 const responses = {
   greeting: [
-    "Hello! I'm Winnie's AI assistant. How can I help you today?",
-    "Hi there! I'm here to help you learn more about Winnie.",
-    "Hey! What would you like to know about Winnie's work?"
+    "Hello! I'm Winfred's AI assistant. How can I help you today?",
+    "Hi there! I'm here to help you learn more about Winfred.",
+    "Hey! What would you like to know about Winfred's work?"
   ],
   skills: [
-    "Winnie is skilled in React, Node.js, TypeScript, Python, and cloud technologies. She loves creating beautiful, functional web applications!",
+    "Winfred is skilled in JavaScript (ES6+),React.js (Frontend),Node.js & Express (Backend)MongoDB (Database) Python Java UI/UX Design. She loves creating beautiful, functional web applications!",
     "Her tech stack includes modern frontend frameworks, backend development, database management, and DevOps practices."
   ],
   experience: [
-    "Winnie has several years of experience in full-stack development, working on projects ranging from e-commerce platforms to data visualization tools.",
-    "She's worked with startups and established companies, bringing creative solutions to complex problems."
+  "Currently building skills in full-stack development with a strong focus on frontend (React, TailwindCSS) and MERN stack.",
+  "Worked on personal and academic projects, including AssignmentHub (a system to help teachers share assignments with students online) and an AI-Driven Job-Matching & Skills Development Platform.",
+  "Actively learning through coursework in Mathematics and Computer Science at JKUAT and training with PLP (MERN & AI for Software Engineering)."
   ],
   contact: [
-    "You can reach Winnie through the contact form, WhatsApp, or connect on LinkedIn and GitHub!",
-    "The best way to contact her is through the form below or via WhatsApp for quick questions."
+    "You can reach Winfred through the contact form, WhatsApp, or connect on LinkedIn and GitHub!",
+    "The best way to contact her is through the form above or via WhatsApp for quick questions."
   ],
   projects: [
-    "Winnie has worked on various exciting projects including web applications, mobile apps, and data analysis tools. Check out her portfolio section!",
-    "Her recent projects showcase full-stack development, UI/UX design, and innovative problem-solving approaches."
+  "Worked on personal and academic projects, including AssignmentHub — a system that helps teachers assign work to students online using passcodes.",
+  "Contributed to an AI-Driven Job-Matching & Skills Development Platform during training, gaining experience with frontend development, MERN stack, and UI/UX concepts."
   ],
   default: [
     "That's an interesting question! Feel free to use the contact form for specific inquiries.",
-    "I'm not sure about that, but Winnie would love to discuss it with you personally!",
+    "I'm not sure about that, but Winfred would love to discuss it with you personally!",
     "For detailed questions, I'd recommend reaching out through the contact form or WhatsApp."
   ]
 };

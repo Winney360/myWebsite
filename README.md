@@ -5,7 +5,7 @@ A modern, interactive personal portfolio website built with React and Node.js, f
 ## ✨ Features
 
 ### 🎨 Design & UX
-- **Modern Design**: Clean, professional aesthetic with purple/pink gradient theme
+- **Modern Design**: Clean, professional aesthetic with purple/purple gradient theme
 - **Dark/Light/Easter Modes**: Three beautiful theme options
 - **Responsive Design**: Optimized for mobile, tablet, and desktop
 - **Accessibility**: WCAG compliant with voice navigation and high-contrast support

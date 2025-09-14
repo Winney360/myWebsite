@@ -6,9 +6,9 @@ import { useAnimatedCounter } from '../../hooks/useAnimatedCounter.jsx';
 const Hero = () => {
   const [greeting, setGreeting] = useState('');
   const [currentText, setCurrentText] = useState('');
-  const experienceCounter = useAnimatedCounter(5);
-  const projectsCounter = useAnimatedCounter(50);
-  const clientsCounter = useAnimatedCounter(25);
+  const experienceCounter = useAnimatedCounter(1);
+  const projectsCounter = useAnimatedCounter(3);
+  const clientsCounter = useAnimatedCounter(1);
 
   const taglines = [
     "Crafting digital experiences that inspire",
@@ -60,18 +60,18 @@ const Hero = () => {
   const downloadResume = () => {
     // Create a dummy PDF download link
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Replace with actual resume file
-    link.download = 'Winnie_Resume.pdf';
+    link.href = '../../../myResume.pdf'; 
+    link.download = 'Winfred_Resume.pdf';
     link.click();
   };
 
-  const whatsappUrl = "https://wa.me/+1234567890"; // Replace with actual number
+  const whatsappUrl = "https://wa.me/+254791995578";
 
   return (
     <section id="hero" className="min-h-screen relative overflow-hidden">
       {/* Background with photo overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-pink-500 to-primary-700 dark:from-primary-900 dark:via-pink-900 dark:to-primary-800">
-        <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/background.jpg')" }} > 
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via--500 to-primary-900 opacity-80 dark:from-primary-900 dark:via-gray-900 dark:to-primary-900" />
         {/* Profile photo placeholder - replace with actual photo */}
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <div className="w-full h-full bg-white/10 backdrop-blur-sm" />
@@ -90,11 +90,11 @@ const Hero = () => {
             </p>
             
             <h1 className="text-white font-handwriting text-6xl md:text-8xl mb-6 leading-tight">
-              Winnie
+              Winfred Nkatha ..
             </h1>
             
             <h2 className="text-white/90 text-2xl md:text-3xl font-light mb-8">
-              Full Stack Developer
+              .. a Frontend Developer
             </h2>
             
             <div className="h-16 mb-8">
@@ -112,13 +112,13 @@ const Hero = () => {
                 </div>
                 <div className="text-white/60 text-sm">Years Experience</div>
               </div>
-              <div className="text-center">
+              <div ref={projectsCounter.ref} className="text-center">
                 <div className="text-white text-3xl font-bold">
                   {projectsCounter.count}+
                 </div>
                 <div className="text-white/60 text-sm">Projects</div>
               </div>
-              <div className="text-center">
+              <div ref={clientsCounter.ref} className="text-center">
                 <div className="text-white text-3xl font-bold">
                   {clientsCounter.count}+
                 </div>
@@ -130,7 +130,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 mb-12">
               <motion.button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 bg-white text-primary-600 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 flex items-center space-x-2"
+                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-primary-500 text-white rounded-full font-semibold hover:bg-purple-900 transition-all duration-300 flex items-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -142,7 +142,7 @@ const Hero = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300 flex items-center space-x-2"
+                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-primary-500 text-white rounded-full font-semibold hover:bg-purple-900 transition-all duration-300 flex items-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -152,7 +152,7 @@ const Hero = () => {
 
               <motion.button
                 onClick={downloadResume}
-                className="px-8 py-4 bg-gradient-to-r from-pink-500 to-primary-500 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
+                className="px-8 py-4 bg-gradient-to-r from-purple-500 to-primary-500 text-white rounded-full font-semibold hover:bg-purple-900 transition-all duration-300 flex items-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >

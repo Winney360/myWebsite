@@ -22,7 +22,7 @@ export function useParticles() {
 
     // Initialize particles
     const initParticles = () => {
-      const colors = ['#a855f7', '#ec4899', '#f472b6', '#c084fc', '#d8b4fe'];
+      const colors = ['purple-500', 'pink-500', 'pink-400', 'purple-400', 'purple-300'];
       
       for (let i = 0; i < 50; i++) {
         particlesRef.current.push({

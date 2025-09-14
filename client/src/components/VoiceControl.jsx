@@ -14,7 +14,7 @@ const VoiceControl = () => {
       className={`fixed bottom-24 right-8 z-40 p-4 rounded-full shadow-lg transition-all duration-300 ${
         isListening 
           ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
-          : 'bg-gradient-to-r from-primary-500 to-pink-500 hover:shadow-xl'
+          : 'bg-gradient-to-r from-primary-500 to-purple-500 hover:shadow-xl'
       } text-white`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}

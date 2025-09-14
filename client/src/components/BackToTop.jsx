@@ -29,7 +29,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-4 rounded-full bg-gradient-to-r from-primary-500 to-pink-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+          className="fixed bottom-8 right-8 z-40 p-4 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >

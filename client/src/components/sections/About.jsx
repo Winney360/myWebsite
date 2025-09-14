@@ -9,13 +9,14 @@ const About = () => {
   });
 
   const skills = [
-    { name: 'React/Next.js', level: 95 },
-    { name: 'Node.js/Express', level: 90 },
-    { name: 'JavaScript/ES6+', level: 88 },
-    { name: 'Python/Django', level: 85 },
-    { name: 'AWS/Cloud', level: 82 },
-    { name: 'UI/UX Design', level: 78 },
-  ];
+  { name: 'JavaScript (ES6+)', level: 85 },
+  { name: 'React.js (Frontend)', level: 80 },
+  { name: 'Node.js & Express (Backend)', level: 75 },
+  { name: 'MongoDB (Database)', level: 90 },
+  { name: 'Python', level: 70 },
+  { name: 'Java', level: 80 },
+  { name: 'UI/UX Design', level: 85 },
+];
 
   const containerVariants = {
     hidden: {},
@@ -32,7 +33,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 bg-gradient-to-b from-blue-50 to-blue-200 dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -43,7 +44,7 @@ const About = () => {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary-600 to-pink-600 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent"
           >
             About Me
           </motion.h2>
@@ -53,10 +54,8 @@ const About = () => {
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="relative">
                 {/* Profile photo placeholder */}
-                <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-primary-400 to-pink-400 p-1">
-                  <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                    <span className="text-4xl">👩‍💻</span>
-                  </div>
+                <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-primary-400 to-purple-400 p-1">
+                  <img src="profile.jpg" alt="👩‍💻" className="w-full h-full object-cover rounded-full" />
                 </div>
                 
                 {/* Floating elements */}
@@ -71,16 +70,13 @@ const About = () => {
 
               <div className="text-center md:text-left">
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                  I'm a passionate full-stack developer with a love for creating beautiful, 
-                  functional digital experiences. With over 5 years in the industry, I've 
-                  helped startups and established companies bring their visions to life 
-                  through innovative web solutions.
+                  I’m an enthusiastic frontend developer in the early stages of my tech journey. I love learning how to turn ideas into beautiful, 
+                  functional web applications using modern tools and frameworks.
+                  Right now, I’m focused on building projects, improving my skills, and exploring full-stack development as I grow in the industry.
                 </p>
 
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  When I'm not coding, you'll find me exploring new technologies, 
-                  contributing to open-source projects, or enjoying a good cup of coffee 
-                  while sketching out my next big idea.
+                 When I’m not coding, I enjoy discovering new technologies, working on creative projects, and finding inspiration from other developers.
                 </p>
               </div>
             </motion.div>
@@ -111,7 +107,7 @@ const About = () => {
                     
                     <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-primary-500 to-pink-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-primary-500 to-purple-500 rounded-full"
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
                         transition={{ duration: 1, delay: index * 0.1 + 0.5, ease: "easeOut" }}
@@ -123,7 +119,7 @@ const About = () => {
 
               {/* Fun Facts */}
               <motion.div
-                className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-pink-50 dark:from-primary-900/20 dark:to-pink-900/20 rounded-xl border border-primary-100 dark:border-primary-800"
+                className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 rounded-xl border border-primary-100 dark:border-primary-800"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -131,10 +127,11 @@ const About = () => {
                   🎯 Fun Facts
                 </h4>
                 <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                  <li>• Coffee consumed: ∞ cups ☕</li>
-                  <li>• Favorite debugging method: Rubber duck 🦆</li>
-                  <li>• Can code in 7+ programming languages</li>
-                  <li>• Enjoys pixel art in spare time 🎨</li>
+                  <li>• 🌃 Love late-night coding sessions.</li>
+                  <li>• 🥳 Believer in small wins.</li>
+                  <li>• 🕶 Dark modes make me look smarter. </li>
+                  <li>• 😂 I comment codes so my future self doesn't hate me.</li>
+                  <li>• 🐢 My code runs... finally.  </li>
                 </ul>
               </motion.div>
             </motion.div>
