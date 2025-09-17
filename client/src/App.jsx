@@ -64,7 +64,7 @@ function App() {
               <footer className="bg-gray-900 dark:bg-black text-white py-8">
                 <div className="container mx-auto px-6 text-center">
                   <p className="text-gray-400">
-                    © 2024 Winnie. Made with 💜 and lots of ☕
+                    © 2025 Winfred. Made with 💜 and lots of ☕
                   </p>
                   <p className="text-gray-500 text-sm mt-2">
                     Built with React, Node.js, and modern web technologies
