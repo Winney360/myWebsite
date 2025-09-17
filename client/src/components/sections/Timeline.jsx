@@ -29,6 +29,14 @@ const Timeline = () => {
     company: 'Self-learning & Projects',
     description: 'Began learning web development through online courses and personal projects like AssignmentHub and Portfolio Website.',
     skills: ['HTML', 'CSS', 'JavaScript']
+  },
+  {
+   year: '2025',
+   title: 'Leadership Training',
+   company: 'Taifa Teule Leadership Experience (TLX)',
+   description: 'Scheduled to participate in a comprehensive leadership development program focused on enhancing strategic thinking, effective communication, and collaborative problem-solving through experiential learning and mentorship.',
+   skills: ['Leadership', 'Team Collaboration', 'Strategic Thinking', 'Public Speaking', 'Problem Solving', 'Emotional Intelligence']
+
   }
 ];
 
