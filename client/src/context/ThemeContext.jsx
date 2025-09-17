@@ -12,13 +12,13 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('theme', theme);
 
     // Remove all theme classes
-    root.classList.remove('light', 'dark', 'easter');
+    root.classList.remove('light', 'dark');
 
     // Add current theme class
     root.classList.add(theme);
 
     // Handle dark mode class for Tailwind
-    if (theme === 'dark' || theme === 'easter') {
+    if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
@@ -27,7 +27,7 @@ export function ThemeProvider({ children }) {
 
   // ✅ This must be inside ThemeProvider
   const toggleTheme = () => {
-    const themes = ['light', 'dark', 'easter'];
+    const themes = ['light', 'dark'];
     const currentIndex = themes.indexOf(theme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);

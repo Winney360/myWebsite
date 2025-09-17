@@ -12,8 +12,6 @@ const ThemeToggle = () => {
         return <SunIcon className="w-5 h-5" />;
       case 'dark':
         return <MoonIcon className="w-5 h-5" />;
-      case 'easter':
-        return <span className="text-lg">🥚</span>;
       default:
         return <SunIcon className="w-5 h-5" />;
     }
@@ -25,8 +23,6 @@ const ThemeToggle = () => {
         return 'Light';
       case 'dark':
         return 'Dark';
-      case 'easter':
-        return 'Easter';
       default:
         return 'Light';
     }
@@ -35,7 +31,7 @@ const ThemeToggle = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="fixed top-6 right-6 z-40 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+      className="fixed top-6 right-6 z-40 p-3 rounded-full bg-purple-200 backdrop-blur-md border border-black/20 hover:bg-white/20 transition-all duration-300 group dark:bg-gray-600"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       title={`Switch to next theme (currently ${getThemeName()})`}
